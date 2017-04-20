@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  get 'users/new'
+
+  get 'users/create'
+
   get 'toppages/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -11,4 +21,9 @@ Rails.application.routes.draw do
   
   
   resources :tasks
+  #, only: [:create, :destroy, :show, :edit, :new, :index, :update]
+  
+#  get 'new_task', to: 'tasks#new'
+  get 'signup', to: 'users#new'
+  resources :users, only: [:index, :show, :new, :create]
 end
