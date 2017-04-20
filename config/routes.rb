@@ -3,17 +3,13 @@ Rails.application.routes.draw do
 
   get 'sessions/create'
 
-  get 'sessions/destoy'
+  get 'sessions/destroy'
 
-#  get 'users/index'
+  get 'users/new'
 
-#  get 'users/show'
+  get 'users/create'
 
-#  get 'users/new'
-
-#  get 'users/create'
-
-#  get 'toppages/index'
+  get 'toppages/index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #root to: 'tasks#index'
@@ -23,9 +19,11 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   
-  #ユーザ登録用ルーティング
-  get 'signup', to: 'users#new'
-  resources :users, only: [:index, :show, :new, :create]
   
   resources :tasks
+  #, only: [:create, :destroy, :show, :edit, :new, :index, :update]
+  
+#  get 'new_task', to: 'tasks#new'
+  get 'signup', to: 'users#new'
+  resources :users, only: [:index, :show, :new, :create]
 end
